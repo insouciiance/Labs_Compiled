@@ -11,11 +11,13 @@ namespace Lab1
     {
         private static void Main(string[] args)
         {
-            double angleInRadians = 3;
+            Console.Write("Enter an angle in radians: ");
+            string angleString = Console.ReadLine();
+            double angleInRadians = Convert.ToDouble(angleString, CultureInfo.InvariantCulture);
 
             double angleInDegrees = ConvertToDegrees(angleInRadians);
 
-            Console.WriteLine(angleInDegrees);
+            Console.WriteLine($"Your angle in degrees: {angleInDegrees}");
 
             Console.ReadKey();
         }
