@@ -12,21 +12,13 @@ namespace Lab1
         private static void Main(string[] args)
         {
             Console.Write("Enter an angle in radians: ");
-            string angleString = Console.ReadLine();
-            double angleInRadians = Convert.ToDouble(angleString, CultureInfo.InvariantCulture);
+            
+            double angleInRadians = double.Parse(Console.ReadLine());       //ввод угла в радианах из консоли и приведение его к типу double
 
-            double angleInDegrees = ConvertToDegrees(angleInRadians);
-
-            Console.WriteLine($"Your angle in degrees: {angleInDegrees}");
-
+            double angleInDegrees = angleInRadians * 180 / Math.PI;         //получение величины угла в градусах по формуле
+            
+            Console.WriteLine($"Your angle in degrees: {angleInDegrees}");  //вывод угла 3в градусах
             Console.ReadKey();
-        }
-
-        private static double ConvertToDegrees(double angleInRadians)
-        {
-            double angleInDegrees = angleInRadians * 180 / Math.PI;
-
-            return angleInDegrees;
         }
     }
 }
