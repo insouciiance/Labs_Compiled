@@ -17,7 +17,7 @@ namespace Lab1
 
             double angleInDegrees = angleInRadians * 180 / Math.PI;         //получение величины угла в градусах по формуле
             
-            Console.WriteLine($"Your angle in degrees: {angleInDegrees}");  //вывод угла 3в градусах
+            Console.WriteLine($"Your angle in degrees: {angleInDegrees}");  //вывод угла в градусах
             Console.ReadKey();
         }
     }
