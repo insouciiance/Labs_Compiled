@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//14. Перевести данное значение угла β из радианной меры в градусную
+
+using System;
 
 namespace Lab1
 {
