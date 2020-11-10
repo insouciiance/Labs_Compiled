@@ -40,6 +40,8 @@ namespace Lab3
 
             Console.WriteLine(x);
 
+            Console.WriteLine($"The fifth root of {a} is {x}");
+
             Console.ReadKey();
         }
     }
