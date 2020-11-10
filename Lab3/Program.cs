@@ -15,8 +15,21 @@ namespace Lab3
                 return;
             }
 
-            double x = a;
+            double x;
             double prevX;
+
+            if (a <= 1)
+            {
+                x = Math.Min(2 * a, 0.95);
+            }
+            else if (a > 1 && a < 25)
+            {
+                x = a / 5;
+            }
+            else
+            {
+                x = a / 25;
+            }
 
             do
             {
