@@ -1,0 +1,7 @@
+D:\Projects\CompiledLabs\Lab3\bin\Debug\Lab3.exe.config
+D:\Projects\CompiledLabs\Lab3\bin\Debug\Lab3.exe
+D:\Projects\CompiledLabs\Lab3\bin\Debug\Lab3.pdb
+D:\Projects\CompiledLabs\Lab3\obj\Debug\Lab3.csprojAssemblyReference.cache
+D:\Projects\CompiledLabs\Lab3\obj\Debug\Lab3.csproj.CoreCompileInputs.cache
+D:\Projects\CompiledLabs\Lab3\obj\Debug\Lab3.exe
+D:\Projects\CompiledLabs\Lab3\obj\Debug\Lab3.pdb
