@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+// Вариант 26 - найти корень пятой степени из числа по реккурентной формуле
 
 namespace Lab3
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            if (!double.TryParse(Console.ReadLine(), out double a))
+            if (!double.TryParse(Console.ReadLine(), out double a) || a == 0) // ввод числа а из консоли и его валидация
             {
-                return;
+                return; 
             }
 
             double x;
             double prevX;
 
-            if (a <= 1)
+            if (a <= 1) // присваивание локальной переменной х значения в зависимости от а
             {
                 x = Math.Min(2 * a, 0.95);
             }
@@ -34,9 +32,11 @@ namespace Lab3
             do
             {
                 Console.WriteLine(x);
+
                 prevX = x;
+
                 x = prevX * 4 / 5 + a / (5 * Math.Pow(prevX, 4));
-            } while (Math.Abs(x - prevX) > 0.0001);
+            } while (Math.Abs(x - prevX) > 0.0001); // пока не получено требуемое приближение - выполнять цикл
 
             Console.WriteLine(x);
 
