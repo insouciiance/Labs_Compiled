@@ -10,10 +10,10 @@ namespace Lab7
     {
         internal static void Main(string[] args)
         {
-            int length;
             int[] array;
+            int length;
 
-            (length, array) = InputArray();
+            (array, length) = InputArray();
 
             if (array == null)
             {
@@ -32,27 +32,27 @@ namespace Lab7
             Console.ReadKey();
         }
 
-        private static (int, int[]) InputArray()
+        private static (int[], int) InputArray()
         {
             Console.Write("Enter the size of the array: ");
-            if (!int.TryParse(Console.ReadLine(), out var n) || n < 0)
+            if (!int.TryParse(Console.ReadLine(), out int length) || length < 0)
             {
-                return (-1, null);
+                return (null, -1);
             }
 
-            int[] array = new int[n];
+            int[] array = new int[length];
 
             Console.WriteLine("Enter the array:");
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < length; i++)
             {
                 Console.Write($"[{i}]:");
                 if (!int.TryParse(Console.ReadLine(), out array[i]))
                 {
-                    return (-1, null);
+                    return (null, -1);
                 }
             }
 
-            return (n, array);
+            return (array, length);
         }
 
         private static int Max(int[] array, int length)
