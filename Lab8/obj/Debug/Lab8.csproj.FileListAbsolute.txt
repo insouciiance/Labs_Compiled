@@ -1,0 +1,7 @@
+D:\Projects\CompiledLabs\Lab8\bin\Debug\Lab8.exe.config
+D:\Projects\CompiledLabs\Lab8\bin\Debug\Lab8.exe
+D:\Projects\CompiledLabs\Lab8\bin\Debug\Lab8.pdb
+D:\Projects\CompiledLabs\Lab8\obj\Debug\Lab8.csprojAssemblyReference.cache
+D:\Projects\CompiledLabs\Lab8\obj\Debug\Lab8.csproj.CoreCompileInputs.cache
+D:\Projects\CompiledLabs\Lab8\obj\Debug\Lab8.exe
+D:\Projects\CompiledLabs\Lab8\obj\Debug\Lab8.pdb
