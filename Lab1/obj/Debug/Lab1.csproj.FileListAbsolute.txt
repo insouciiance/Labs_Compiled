@@ -5,3 +5,10 @@ D:\Projects\CompiledLabs\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
 D:\Projects\CompiledLabs\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
 D:\Projects\CompiledLabs\Lab1\obj\Debug\Lab1.exe
 D:\Projects\CompiledLabs\Lab1\obj\Debug\Lab1.pdb
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\bin\Debug\Lab1.exe.config
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\bin\Debug\Lab1.exe
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\bin\Debug\Lab1.pdb
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\obj\Debug\Lab1.exe
+C:\Users\nikkv\source\repos\Labs\CompiledLabs\Lab1\obj\Debug\Lab1.pdb

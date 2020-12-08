@@ -10,34 +10,31 @@ namespace Lab7
     {
         internal static void Main(string[] args)
         {
-            int[] array;
-            int length;
-
-            (array, length) = InputArray();
+            int[] array = InputArray();
 
             if (array == null)
             {
                 return;
             }
 
-            int numberOfMatches = FindAndReplace(array, length);
+            int numberOfMatches = FindAndReplace(array);
 
             Console.WriteLine($"\nNumber of matches: {numberOfMatches}");
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine($"[{i}]:{array[i]}");
+                Console.WriteLine($"[{i}]: {array[i]}");
             }
 
             Console.ReadKey();
         }
 
-        private static (int[], int) InputArray()
+        private static int[] InputArray()
         {
             Console.Write("Enter the size of the array: ");
             if (!int.TryParse(Console.ReadLine(), out int length) || length < 0)
             {
-                return (null, -1);
+                return null;
             }
 
             int[] array = new int[length];
@@ -45,21 +42,21 @@ namespace Lab7
             Console.WriteLine("Enter the array:");
             for (int i = 0; i < length; i++)
             {
-                Console.Write($"[{i}]:");
+                Console.Write($"[{i}]: ");
                 if (!int.TryParse(Console.ReadLine(), out array[i]))
                 {
-                    return (null, -1);
+                    return null;
                 }
             }
 
-            return (array, length);
+            return array;
         }
 
-        private static int Max(int[] array, int length)
+        private static int Max(int[] array)
         {
-            int max = 0;
+            int max = int.MinValue;
             
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] > max)
                 {
@@ -70,12 +67,12 @@ namespace Lab7
             return max;
         }
 
-        private static int FindAndReplace(int[] array, int length)
+        private static int FindAndReplace(int[] array)
         {
-            int maxElement = Max(array, length);
+            int maxElement = Max(array);
             int numberOfMatches = 0;
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (i % 2 == 0 && array[i] % 2 == 1)
                 {
