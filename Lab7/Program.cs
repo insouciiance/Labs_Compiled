@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab7
 {
     internal class Program
-    {
-        internal static void Main(string[] args)
+    { 
+        private static void Main(string[] args)
         {
             int[] array = InputArray();
 
@@ -19,12 +15,7 @@ namespace Lab7
 
             int numberOfMatches = FindAndReplace(array);
 
-            Console.WriteLine($"\nNumber of matches: {numberOfMatches}");
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.WriteLine($"[{i}]: {array[i]}");
-            }
+            PrintResults(array, numberOfMatches);
 
             Console.ReadKey();
         }
@@ -32,6 +23,7 @@ namespace Lab7
         private static int[] InputArray()
         {
             Console.Write("Enter the size of the array: ");
+
             if (!int.TryParse(Console.ReadLine(), out int length) || length < 0)
             {
                 return null;
@@ -50,6 +42,23 @@ namespace Lab7
             }
 
             return array;
+        }
+
+        private static void PrintResults(int[] array, int numberOfMatches)
+        {
+            if (numberOfMatches > 0)
+            {
+                Console.WriteLine($"\nNumber of matches: {numberOfMatches}");
+            }
+            else
+            {
+                Console.WriteLine("No matches found");
+            }
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine($"[{i}]: {array[i]}");
+            }
         }
 
         private static int Max(int[] array)
@@ -74,7 +83,7 @@ namespace Lab7
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (i % 2 == 0 && array[i] % 2 == 1)
+                if (i % 2 == 0 && Math.Abs(array[i] % 2) == 1)
                 {
                     array[i] = maxElement - array[i];
                     numberOfMatches++;
