@@ -63,9 +63,9 @@ namespace Lab7
 
         private static int Max(int[] array)
         {
-            int max = int.MinValue;
+            int max = array[0];
             
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
                 if (array[i] > max)
                 {
