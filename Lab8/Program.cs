@@ -14,7 +14,7 @@ namespace Lab8
             
             PrintMatrix(matrix);
 
-            matrix = OrderByMainDiagonal(matrix);
+            OrderByMainDiagonal(ref matrix);
 
             PrintMatrix(matrix);
 
@@ -25,22 +25,22 @@ namespace Lab8
         {
             if (matrix == null)
             {
-                Console.WriteLine("Oopsie! Matrix is null!~");
-                return;
-
+                Console.WriteLine("Oopsie! Matrix is null!");
             }
-
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            else
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int i = 0; i < matrix.GetLength(0); i++)
                 {
-                    Console.Write($"{matrix[i, j],-4}");
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        Console.Write($"{matrix[i, j],4}");
+                    }
+
+                    Console.WriteLine();
                 }
 
                 Console.WriteLine();
             }
-
-            Console.WriteLine();
         }
 
         static int[,] GenerateSquareMatrix(int n)
@@ -52,7 +52,7 @@ namespace Lab8
             {
                 for (int j = 0; j < n; j++)
                 {
-                    matrix[i, j] = random.Next(1, 100);
+                    matrix[i, j] = random.Next(-50, 51);
                 }
             }
 
@@ -62,11 +62,16 @@ namespace Lab8
         static int[] GetOrderedIndexes(int[,] matrix)
         {
             int depth = matrix.GetLength(0);
-            int[] orderedIndexes = new int[depth].Select((x, i) => -1).ToArray();
+            int[] orderedIndexes = new int[depth];
+
+            for (int i = 0; i < depth; i++)
+            {
+                orderedIndexes[i] = -1;
+            }
 
             ProcessRow(0);
 
-            return orderedIndexes.Contains(-1) ? null : orderedIndexes;
+            return orderedIndexes[depth - 1] == -1 ? null : orderedIndexes;
 
             void ProcessRow(int rowIndex)
             {
@@ -75,11 +80,12 @@ namespace Lab8
                     orderedIndexes[i] = -1;
                 }
 
-                for (int i = 0; i < depth; i++)
+                for (int j = 0; j < depth; j++)
                 {
-                    if (orderedIndexes[depth - 1] == -1 && (rowIndex == 0 || matrix[rowIndex, i] >= matrix[rowIndex - 1, orderedIndexes[rowIndex - 1]] && !orderedIndexes.Contains(i)))
+                    if (orderedIndexes[depth - 1] == -1 && !Contains(orderedIndexes, j) && 
+                        (rowIndex == 0 || matrix[rowIndex, j] >= matrix[rowIndex - 1, orderedIndexes[rowIndex - 1]]))
                     {
-                        orderedIndexes[rowIndex] = i;
+                        orderedIndexes[rowIndex] = j;
 
                         if (rowIndex < depth - 1)
                         {
@@ -90,25 +96,44 @@ namespace Lab8
             }
         }
 
-        static int[,] OrderByMainDiagonal(int[,] matrix)
+        static void OrderByMainDiagonal(ref int[,] matrix)
         {
-            int[,] orderedMatrix = new int[matrix.GetLength(0), matrix.GetLength(1)];
+            int rowsCount = matrix.GetLength(0);
+            int columnsCount = matrix.GetLength(1);
+
+            int[,] orderedMatrix = new int[rowsCount, columnsCount];
             int[] orderedIndexes = GetOrderedIndexes(matrix);
 
             if (orderedIndexes == null)
             {
-                return null;
+                matrix = null;
+                return;
             }
 
-            for (int j = 0; j < matrix.GetLength(1); j++)
+            for (int j = 0; j < columnsCount; j++)
             {
-                for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int i = 0; i < rowsCount; i++)
                 {
                     orderedMatrix[i, j] = matrix[i, orderedIndexes[j]];
                 }
             }
 
-            return orderedMatrix;
+            matrix = orderedMatrix;
         }
+
+        static bool Contains(int[] array, int element)
+        {
+            bool contains = false;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == element)
+                {
+                    contains = true;
+                }
+            }
+
+            return contains;
+        } 
     }
 }
