@@ -10,7 +10,7 @@ namespace Lab8
     {
         static void Main(string[] args)
         {
-            int[,] matrix = GenerateSquareMatrix(4);
+            double[,] matrix = GenerateSquareMatrix(4);
             
             PrintMatrix(matrix);
 
@@ -21,7 +21,7 @@ namespace Lab8
             Console.ReadKey();
         }
 
-        static void PrintMatrix(int[,] matrix)
+        static void PrintMatrix(double[,] matrix)
         {
             if (matrix == null)
             {
@@ -33,7 +33,7 @@ namespace Lab8
                 {
                     for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        Console.Write($"{matrix[i, j],4}");
+                        Console.Write($"{matrix[i, j],8}");
                     }
 
                     Console.WriteLine();
@@ -43,31 +43,26 @@ namespace Lab8
             }
         }
 
-        static int[,] GenerateSquareMatrix(int n)
+        static double[,] GenerateSquareMatrix(int n)
         {
             Random random = new Random();
-            int[,] matrix = new int[n, n];
+            double[,] matrix = new double[n, n];
 
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
-                    matrix[i, j] = random.Next(-50, 51);
+                    matrix[i, j] = Math.Round(random.NextDouble() * 100 - 50, 2);
                 }
             }
 
             return matrix;
         }
 
-        static int[] GetOrderedIndexes(int[,] matrix)
+        static int[] GetOrderedIndexes(double[,] matrix)
         {
             int depth = matrix.GetLength(0);
             int[] orderedIndexes = new int[depth];
-
-            for (int i = 0; i < depth; i++)
-            {
-                orderedIndexes[i] = -1;
-            }
 
             ProcessRow(0);
 
@@ -96,29 +91,31 @@ namespace Lab8
             }
         }
 
-        static void OrderByMainDiagonal(ref int[,] matrix)
+        static void OrderByMainDiagonal(ref double[,] matrix)
         {
             int rowsCount = matrix.GetLength(0);
             int columnsCount = matrix.GetLength(1);
 
-            int[,] orderedMatrix = new int[rowsCount, columnsCount];
             int[] orderedIndexes = GetOrderedIndexes(matrix);
 
             if (orderedIndexes == null)
             {
                 matrix = null;
-                return;
             }
-
-            for (int j = 0; j < columnsCount; j++)
+            else
             {
-                for (int i = 0; i < rowsCount; i++)
-                {
-                    orderedMatrix[i, j] = matrix[i, orderedIndexes[j]];
-                }
-            }
+                double[,] orderedMatrix = new double[rowsCount, columnsCount];
 
-            matrix = orderedMatrix;
+                for (int j = 0; j < columnsCount; j++)
+                {
+                    for (int i = 0; i < rowsCount; i++)
+                    {
+                        orderedMatrix[i, j] = matrix[i, orderedIndexes[j]];
+                    }
+                }
+
+                matrix = orderedMatrix;
+            }
         }
 
         static bool Contains(int[] array, int element)
