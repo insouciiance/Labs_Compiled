@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab8
 {
@@ -11,7 +8,7 @@ namespace Lab8
         static void Main(string[] args)
         {
             double[,] matrix = GenerateSquareMatrix(4);
-            
+
             PrintMatrix(matrix);
 
             OrderByMainDiagonal(ref matrix);
@@ -77,7 +74,7 @@ namespace Lab8
 
                 for (int j = 0; j < depth; j++)
                 {
-                    if (orderedIndexes[depth - 1] == -1 && !Contains(orderedIndexes, j) && 
+                    if (orderedIndexes[depth - 1] == -1 && orderedIndexes.Contains(j) &&
                         (rowIndex == 0 || matrix[rowIndex, j] >= matrix[rowIndex - 1, orderedIndexes[rowIndex - 1]]))
                     {
                         orderedIndexes[rowIndex] = j;
@@ -131,6 +128,6 @@ namespace Lab8
             }
 
             return contains;
-        } 
+        }
     }
 }
