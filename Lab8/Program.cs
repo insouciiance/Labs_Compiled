@@ -74,7 +74,7 @@ namespace Lab8
 
                 for (int j = 0; j < depth; j++)
                 {
-                    if (orderedIndexes[depth - 1] == -1 && orderedIndexes.Contains(j) &&
+                    if (orderedIndexes[depth - 1] == -1 && !Contains(orderedIndexes, j) &&
                         (rowIndex == 0 || matrix[rowIndex, j] >= matrix[rowIndex - 1, orderedIndexes[rowIndex - 1]]))
                     {
                         orderedIndexes[rowIndex] = j;
