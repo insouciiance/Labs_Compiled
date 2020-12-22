@@ -3,11 +3,16 @@ using static Text.StringHelper;
 
 namespace Lab9
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            string input = Console.ReadLine();
 
+            int wordsCount = SplitWordsCount(input);
+            Console.WriteLine($"Number of words between ';': {wordsCount}");
+
+            Console.ReadKey();
         }
     }
 }
