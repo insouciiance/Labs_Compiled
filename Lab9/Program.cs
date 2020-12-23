@@ -10,9 +10,8 @@ namespace Lab9
             string input = Console.ReadLine();
 
             int wordsCount = SplitWordsCount(input);
-            Console.WriteLine($"Number of words between ';': {wordsCount}");
 
-            Console.ReadKey();
+            Console.WriteLine($"Number of words between ';': {wordsCount}");
         }
     }
 }

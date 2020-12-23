@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Text
 {
@@ -8,7 +7,7 @@ namespace Text
         public static int SplitWordsCount(string input)
         {
             string[] splitInput = input.Split(';');
-            IEnumerable<string> separateStrings = splitInput.Skip(1).SkipLast(1);
+            var separateStrings = splitInput.Skip(1).SkipLast(1);
             int wordsCount = separateStrings.Count(s => s.Trim() != ""); 
 
             return wordsCount;
